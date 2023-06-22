@@ -1,4 +1,4 @@
-package com.pangan.donutapi.donut;
+package com.pangan.donutapi.model;
 
 
 import org.springframework.data.annotation.Id;

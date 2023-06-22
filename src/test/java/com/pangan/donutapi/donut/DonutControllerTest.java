@@ -1,5 +1,7 @@
 package com.pangan.donutapi.donut;
 
+import com.pangan.donutapi.model.Donut;
+import com.pangan.donutapi.controller.DonutController;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

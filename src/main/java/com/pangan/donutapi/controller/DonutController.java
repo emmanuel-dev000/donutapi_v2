@@ -27,9 +27,27 @@ public class DonutController {
         return new ResponseEntity<>(donutList, HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<DonutDto> getDonutById(@PathVariable("id") String id) {
+        DonutDto donutDto = donutService.getDonutById(id);
+        return new ResponseEntity<>(donutDto, HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity<DonutDto> addNewDonut(@RequestBody DonutDto donutDto) {
         DonutDto savedDonutDto = donutService.addNewDonut(donutDto);
         return new ResponseEntity<>(savedDonutDto, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteDonutById(@PathVariable("id") String id) {
+        String deleteMessage = donutService.deleteDonutById(id);
+        return new ResponseEntity<>(deleteMessage, HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<DonutDto> updateDonutById(@PathVariable("id") String id, @RequestBody DonutDto updatedDonut) {
+        DonutDto donutDto = donutService.updateDonutById(id, updatedDonut);
+        return new ResponseEntity<>(donutDto, HttpStatus.OK);
     }
 }

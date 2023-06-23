@@ -1,4 +1,4 @@
-package com.pangan.donutapi;
+package com.pangan.donutapi.repository;
 
 import com.pangan.donutapi.model.Donut;
 import org.springframework.data.mongodb.repository.MongoRepository;

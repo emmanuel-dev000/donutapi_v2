@@ -1,6 +1,6 @@
 package com.pangan.donutapi.service;
 
-import com.pangan.donutapi.DonutRepository;
+import com.pangan.donutapi.repository.DonutRepository;
 import com.pangan.donutapi.dto.DonutDto;
 import com.pangan.donutapi.mapper.DonutMapper;
 import com.pangan.donutapi.model.Donut;

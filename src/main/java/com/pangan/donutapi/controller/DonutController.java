@@ -1,6 +1,7 @@
 package com.pangan.donutapi.controller;
 
 import com.pangan.donutapi.dto.DonutDto;
+import com.pangan.donutapi.dto.UpdatedDonutDto;
 import com.pangan.donutapi.model.Donut;
 import com.pangan.donutapi.service.DonutService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,9 +46,9 @@ public class DonutController {
         return new ResponseEntity<>(deleteMessage, HttpStatus.OK);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<DonutDto> updateDonutById(@PathVariable("id") String id, @RequestBody DonutDto updatedDonut) {
-        DonutDto donutDto = donutService.updateDonutById(id, updatedDonut);
+    @PatchMapping("/{id}")
+    public ResponseEntity<Donut> updateDonutById(@PathVariable("id") String id, @RequestBody UpdatedDonutDto updatedDonut) {
+        Donut donutDto = donutService.updateDonutById(id, updatedDonut);
         return new ResponseEntity<>(donutDto, HttpStatus.OK);
     }
 }

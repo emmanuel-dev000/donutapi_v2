@@ -1,5 +1,6 @@
 package com.pangan.donutapi.service;
 
+import com.pangan.donutapi.dto.UpdatedDonutDto;
 import com.pangan.donutapi.repository.DonutRepository;
 import com.pangan.donutapi.dto.DonutDto;
 import com.pangan.donutapi.mapper.DonutMapper;
@@ -23,7 +24,7 @@ public class DonutService {
     }
 
     public DonutDto addNewDonut(DonutDto donutDto) {
-        Donut donut = DonutMapper.mapDtoToDonut(donutDto);
+        Donut donut = DonutMapper.mapDonutDtoToDonut(donutDto);
         donutRepository.save(donut);
         return donutDto;
     }
@@ -37,7 +38,7 @@ public class DonutService {
         if (donutOptional.isEmpty())
             return null;
 
-        return DonutMapper.mapDonutToDto(donutOptional.get());
+        return DonutMapper.mapDonutToDonutDto(donutOptional.get());
     }
 
     public String deleteDonutById(String id) {
@@ -49,15 +50,13 @@ public class DonutService {
         return DELETE_SUCCESSFUL_MESSAGE;
     }
 
-    public DonutDto updateDonutById(String id, DonutDto updatedDonut) {
+    public Donut updateDonutById(String id, UpdatedDonutDto updatedDonut) {
         Donut donut = donutRepository.findById(id).get();
 
-        donut.setId(updatedDonut.id());
         donut.setName(updatedDonut.name());
         donut.setDescription(updatedDonut.description());
         donut.setImageUrl(updatedDonut.imageUrl());
 
-        donutRepository.save(donut);
-        return DonutMapper.mapDonutToDto(donut);
+        return donutRepository.save(donut);
     }
 }

@@ -48,7 +48,7 @@ public class DonutController {
 
     @PatchMapping("/{id}")
     public ResponseEntity<Donut> updateDonutById(@PathVariable("id") String id, @RequestBody UpdatedDonutDto updatedDonut) {
-        Donut donutDto = donutService.updateDonutById(id, updatedDonut);
-        return new ResponseEntity<>(donutDto, HttpStatus.OK);
+        Donut donut = donutService.updateDonutById(id, updatedDonut);
+        return new ResponseEntity<>(donut, HttpStatus.OK);
     }
 }

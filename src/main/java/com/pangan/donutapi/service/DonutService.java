@@ -53,9 +53,17 @@ public class DonutService {
     public Donut updateDonutById(String id, UpdatedDonutDto updatedDonut) {
         Donut donut = donutRepository.findById(id).get();
 
-        donut.setName(updatedDonut.name());
-        donut.setDescription(updatedDonut.description());
-        donut.setImageUrl(updatedDonut.imageUrl());
+        if (!updatedDonut.name().isEmpty() && !updatedDonut.name().equals(donut.getName())) {
+            donut.setName(updatedDonut.name());
+        }
+
+        if (!updatedDonut.description().isEmpty() && !updatedDonut.description().equals(donut.getDescription())) {
+            donut.setDescription(updatedDonut.description());
+        }
+
+        if (!updatedDonut.imageUrl().isEmpty() && !updatedDonut.imageUrl().equals(donut.getImageUrl())) {
+            donut.setImageUrl(updatedDonut.imageUrl());
+        }
 
         return donutRepository.save(donut);
     }

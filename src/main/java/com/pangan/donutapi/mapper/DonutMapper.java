@@ -1,13 +1,12 @@
 package com.pangan.donutapi.mapper;
 
 import com.pangan.donutapi.dto.DonutDto;
+import com.pangan.donutapi.dto.UpdatedDonutDto;
 import com.pangan.donutapi.model.Donut;
-
-import java.util.Optional;
 
 public class DonutMapper {
 
-    public static DonutDto mapDonutToDto(Donut donut) {
+    public static DonutDto mapDonutToDonutDto(Donut donut) {
         if (donut == null)
             return null;
 
@@ -19,7 +18,7 @@ public class DonutMapper {
         );
     }
 
-    public static Donut mapDtoToDonut(DonutDto donutDto) {
+    public static Donut mapDonutDtoToDonut(DonutDto donutDto) {
         if (donutDto == null)
             return null;
 

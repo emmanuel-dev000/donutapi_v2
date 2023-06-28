@@ -4,7 +4,7 @@ This is version 2 of Donut API
 
 And part two of learning Spring Boot, React (and Typescript), and MongoDB  
 
-Manage your donuts easily and in a delightful way in this app.
+Manage your donuts easily in a delightful way with this webapp.
 
 Made by Emmanuel Pangan entirely from scratch within a week
 
